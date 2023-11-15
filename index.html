@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .content {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            display: flex;
+            right: 20%; /* Espaçamento à direita para a barra lateral */
+        }
+
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            width: 20%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-color: #008000;
+            border-radius: 6px;
+            color: white;
+            padding: 20px;
+            align-items: center;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .topo {
+            margin-top: 50px;
+        }
+
+        .menu .logo {
+            margin-top: 550px;
+        }
+
+        .menu a:hover {
+            color: black;
+            background-color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+
+        .logo {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+        }
+
+        .menu-btn {
+            margin-top: 10px;
+            margin-left: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: #008000;
+            border-radius: 6px;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu-btn:hover {
+            background-color: #004d00;
+        }
+
+        body::after {
+            content: "";
+            background: url(logo.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .projeto {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .projeto img {
+            height: 300px;
+            width: auto;
+            border-radius: 10px;
+        }
+
+        /* Estilo para centralizar os títulos sem afetar as imagens */
+        .projeto .info h3 {
+            text-align: center;
+        }
+
+        .projeto p {
+            order: 1;
+            text-align: left;
+        }
+
+        .projeto .info {
+            order: 2;
+            flex: 1;
+        }
+
+        .projeto img {
+            height: 300px;
+            width: auto;
+            border-radius: 10px;
+        }
+
+        .paragrafo-limitado {
+            max-height: 80px;
+            overflow: hidden;
+        }
+
+        #projetos {
+            text-align: center;
+        }
+
+        .projeto img {
+            height: 300px;
+            width: 500px;
+            border-radius: 10px;
+            order: 2;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .titullo{
+            color: #004d00;
+        }
+
+        .info p{
+            width: 550px;
+            text-align: center;
+            margin-right: 60px;
+        }
+
+        .text p{
+            text-align: center;
+            height: 400px;
+            margin-top: 300px;
+            margin-right: 50px;
+            margin-left: 500px;
+            width: 600px;
+        }
+
+        .text h1{
+            color: #004d00;
+            text-align: center;
+            margin-left: 500px;
+        }
+
+        .local{
+            margin-right: 500px;
+            margin-top: 300px;
+            width: 600px;
+        }
+
+        .local h1{
+            color: #004d00;
+        }
+
+        .fcon{
+            margin-right: 500px;
+            margin-top: 200px;
+            width: 600px;
+        }
+
+        .fcon h1{
+            color: #004d00;
+        }
+
+        .social-button {
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+            background-color: #004d00;
+            border-radius: 6px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .social-button:hover {
+            background-color: #45a049;
+        }
+
+        .social-icon-z {
+            width: 90px;
+            height: 75px;
+            border-radius: 50%;
+        }
+
+        .social-icon-i {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .social-container {
+            display: flex;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div id="menu" class="menu">
+        <a href="#" id="sobre-nos" class="topo">Sobre nós</a>
+        <a href="#" id="projetos">Projetos</a>
+        <a href="#" id="localizacao">Localização</a>
+        <a href="#" id="fale-conosco">Fale conosco</a>
+        <img class="logo" src="logo.png" alt="Logo">
+    </div>
+    <div class="content">
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "flex";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var id = this.getAttribute('id');
+                var content = document.querySelector('.content');
+                switch (id) {
+                    case 'sobre-nos':
+                        content.innerHTML =` 
+                            <div class="content">
+                                <div class="text"> 
+                                    <h1>Sobre nós</h1>
+                                    <p class="paragrafo-limitado">Renata Puccetti - Formada em Arquitetura pela FAUUSP, com passagem pela École dArchitecture de Versailles, Renata é a fundadora da Rina Architecture, um nome que já é uma referência.</p>
+                                </div>
+                                <div class="image">
+                                    <img src="./mulher.jpg" alt="Foto de Renata Puccetti" style="width: 200px; height: 200px; border-radius: 50%; margin-top: 300px; margin-right: 250px;"> 
+                                </div> 
+                            </div>`;
+                        break;
+                    case 'projetos':
+                        content.innerHTML = `
+                            <section id="projetos">
+                                <article class="projeto">
+                                    <div class="info">
+                                        <h3 class="titullo">EcoLife Residence</h3>
+                                        <p class="paragrafo-limitado">
+                                            Prédio residencial localizado no bairro Alphaville (São Paulo), o projeto foi idealizado visando entregar modernidade e sustentabilidade em um só projeto.
+                                        </p>
+                                    </div>
+                                    <img src="./imagem1.jpg" alt="Imagem do projeto 1">
+                                </article>
+                                <article class="projeto">
+                                    <div class="info">
+                                        <h3 class="titullo">Village Market Place</h3>
+                                        <p class="paragrafo-limitado">
+                                            Shopping localizado em Xangai (China), diante da necessidade chinesa de se conectar ao meio ambiente, o projeto foi idealizado para trazer à cidade um pouco de verde.
+                                        </p>
+                                    </div>
+                                    <img src="./imagem2.jpg" alt="Imagem do projeto 2">
+                                </article>
+                                <article class="projeto">
+                                    <div class="info">
+                                        <h3 class="titullo">Residência Mr. Phillip</h3>
+                                        <p class="paragrafo-limitado">
+                                            Casa de praia do CEO da empresa Nautics, localizada em Aspen, o projeto é cercado por uma floresta encantadora, tanto no verão quanto no inverno americano.
+                                        </p>
+                                    </div>
+                                    <img src="./imagem3.jpg" alt="Imagem do projeto 3">
+                                </article>
+                            </section>`;
+                        break;
+                    case 'localizacao':
+                        content.innerHTML = `
+                        <div class="local">
+                            <h1>ENDEREÇO NACIONAL</h1>
+                        <p class="paragrafo-limitado">AV. BRIG. FARIA LIMA, 5678 - ITAIM BIBI, SÃO PAULO - SP, 04538-133</p>
+                        
+                        <h1>ENDEREÇO INTERNACIONAL</h1>
+                        <p class="paragrafo-limitado">5TH AVE, NEW YORK, NY 30254, UNITED STATES</p></div>`;
+                        break;
+                    case 'fale-conosco':
+                        content.innerHTML = `
+                        <div class="fcon">
+                            <h1>TELEFONE PARA CONTATO:</h1>
+                            <p class="paragrafo-limitado"> +55 (11) 99304-2033 (WhatsApp)</p> 
+                            <p class="paragrafo-limitado">+55 (11) 3023-0093 (Fixo) NACIONAL</p>
+                            
+                            <h1>EMAIL:</h1>
+                            <p class="paragrafo-limitado">international@bioarchiteture.com</p>
+                            <p class="paragrafo-limitado">naceional@bioarchiteture.com.br</p>
+
+                            <h1>Redes Sociais</h1>
+                            <div class="social-container">
+                                <img src="./whatsapp.png" class="social-icon-z">
+                                <button class="social-button" id="zap" onclick="window.open('https://wa.me/113535486098')">
+                                    +11 (353) 548-6098 INTERNACIONAL
+                                </button>
+                            </div>
+                            <div class="social-container">
+                                <img src="./instagram.png" class="social-icon-i">
+                                <button class="social-button" id="insta" onclick="window.open('https://www.instagram.com/bioarchiteture')">
+                                    @bioarchiteture
+                                </button>
+                            </div>
+                        </div>`;
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
